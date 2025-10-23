@@ -3,22 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Health Assistant</title>
+    <title>AI Health Assistant Chat</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-<body>
-
+<body class="chat-body">
     <div class="chat-container">
+        <nav class="chat-nav">
+            <a href="{{ url_for('home') }}" class="back-link">← Back to Home</a>
+            <div class="nav-links">
+                <a href="{{ url_for('login') }}" class="login-link">Login</a>
+            </div>
+        </nav>
+        
         <div class="chat-header">
-            <h2>🩺 ❤️AI Health Assistant</h2>
+            <h2>🩺 Virtual First-Aid Assistant</h2>
         </div>
+        
         <div class="chat-messages" id="chat-messages">
-            <div class="message assistant">
-                Hello! I am your AI Health Assistant. How can I help you with first-aid today?
+            <div class="message assistant initial-message">
+                Hello! I'm your First-Aid Assistant. How can I help you today? Please type your symptom (e.g., 'burn', 'fever').
             </div>
         </div>
+        
+        <div class="quick-replies" id="quick-replies">
+            <button class="quick-button" data-query="burn">Minor Burn</button>
+            <button class="quick-button" data-query="cut">Bleeding/Cut</button>
+            <button class="quick-button" data-query="sprain">Sprain/Twist</button>
+            <button class="quick-button" data-query="fever">High Fever</button>
+        </div>
+
         <div class="chat-input-container">
-            <input type="text" id="user-input" placeholder="Type your first-aid question...">
+            <input type="text" id="user-input" placeholder="Type your first-aid question or condition...">
             <button id="send-button">Send</button>
         </div>
     </div>

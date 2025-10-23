@@ -5,6 +5,17 @@ document.getElementById('user-input').addEventListener('keypress', function (e) 
     }
 });
 
+// Event listeners for the Quick Reply buttons
+document.getElementById('quick-replies').addEventListener('click', function(e) {
+    if (e.target.classList.contains('quick-button')) {
+        const query = e.target.getAttribute('data-query');
+        // Set the input value and immediately send the message
+        document.getElementById('user-input').value = query;
+        sendMessage();
+    }
+});
+
+
 function sendMessage() {
     const userInput = document.getElementById('user-input');
     const userMessage = userInput.value.trim();
@@ -12,8 +23,11 @@ function sendMessage() {
 
     appendMessage(userMessage, 'user');
     userInput.value = '';
+    
+    // Hide Quick Replies after the first user message for a cleaner look
+    document.getElementById('quick-replies').style.display = 'none';
 
-    // Send message to the Flask server
+    // Send message to the Flask server (backend)
     fetch('/chat', {
         method: 'POST',
         headers: {
@@ -27,7 +41,7 @@ function sendMessage() {
     })
     .catch(error => {
         console.error('Error:', error);
-        appendMessage('Sorry, an error occurred. Please try again.', 'assistant');
+        appendMessage('Sorry, an error occurred while connecting to the server.', 'assistant');
     });
 }
 
@@ -35,7 +49,11 @@ function appendMessage(text, sender) {
     const chatMessages = document.getElementById('chat-messages');
     const messageDiv = document.createElement('div');
     messageDiv.classList.add('message', sender);
-    messageDiv.textContent = text;
+    
+    // Highlight key medical terms for better clarity (e.g., 'burn' becomes <strong>burn</strong>)
+    const highlightedText = text.replace(/(burn|cut|choking|fever|sprain|fracture|cpr|emergency)/gi, '<strong>$1</strong>'); 
+    
+    messageDiv.innerHTML = highlightedText;
     chatMessages.appendChild(messageDiv);
     chatMessages.scrollTop = chatMessages.scrollHeight;
-}  
+}
