@@ -5,23 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Health Assistant Chat</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body class="chat-body">
     <div class="chat-container">
         <nav class="chat-nav">
-            <a href="{{ url_for('home') }}" class="back-link">← Back to Home</a>
-            <div class="nav-links">
-                <a href="{{ url_for('login') }}" class="login-link">Login</a>
-            </div>
+            <a href="{{ url_for('home') }}" class="back-link"><i class="fas fa-arrow-left"></i> Back to Home</a>
+            <h2><i class="fas fa-stethoscope icon"></i> Virtual First-Aid Assistant</h2>
+            <a href="{{ url_for('login') }}" class="login-link">Login <i class="fas fa-sign-in-alt"></i></a>
         </nav>
-        
-        <div class="chat-header">
-            <h2>🩺 Virtual First-Aid Assistant</h2>
-        </div>
         
         <div class="chat-messages" id="chat-messages">
             <div class="message assistant initial-message">
-                Hello! I'm your First-Aid Assistant. How can I help you today? Please type your symptom (e.g., 'burn', 'fever').
+                Hello! I'm your Virtual First-Aid Assistant. How can I help you today? Please type a specific condition (e.g., 'burn', 'fever', 'fracture').
             </div>
         </div>
         
@@ -30,11 +26,13 @@
             <button class="quick-button" data-query="cut">Bleeding/Cut</button>
             <button class="quick-button" data-query="sprain">Sprain/Twist</button>
             <button class="quick-button" data-query="fever">High Fever</button>
+            <button class="quick-button" data-query="snake bite">Snake Bite</button>
+            <button class="quick-button" data-query="fracture">Fracture</button>
         </div>
 
         <div class="chat-input-container">
-            <input type="text" id="user-input" placeholder="Type your first-aid question or condition...">
-            <button id="send-button">Send</button>
+            <input type="text" id="user-input" placeholder="Describe the condition or ask your question...">
+            <button id="send-button">Send <i class="fas fa-paper-plane"></i></button>
         </div>
     </div>
 

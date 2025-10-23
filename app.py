@@ -41,6 +41,7 @@ FIRST_AID_RESPONSES = {
     'dizziness': "Sit or lie down immediately to prevent falling. Slowly sip water. If dizziness is severe or accompanied by other symptoms (like chest pain), seek medical help.",
 
     # 31-40: Foreign Objects & Minor Issues
+    'cough': "Avoid touching your eyes, nose, or mouth, all of which are easy entry points for bacteria and viruses into your body where they may cause infection.",
     'eye injury': "Do not rub the eye. If a small particle is present, flush the eye with clean water. For chemical exposure or a large object, cover the eye loosely and seek emergency care.",
     'foreign object': "If an object is embedded in the skin, do not remove it; stabilize it and seek medical help. If swallowed, call for advice immediately.",
     'splashing chemical': "Immediately flush the affected skin or eye with large amounts of cool water for at least 15-20 minutes. Call poison control or emergency services.",
