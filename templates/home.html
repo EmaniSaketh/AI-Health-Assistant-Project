@@ -3,14 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Health Assistant</title>
+    <title>AI Health Assistant</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+    
+    <video autoplay muted loop id="background-video">
+        <source src="{{ url_for('static', filename='videos/videoplayback.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
     <div class="home-container">
         <nav class="navbar">
-            <div class="logo">🩺 Health Assistant</div>
+            <div class="logo">🩺 AI Health Assistant</div>
             <div class="nav-links">
                 <a href="{{ url_for('home') }}" class="active">Home</a>
                 <a href="{{ url_for('chat_page') }}">First-Aid Chat</a>
