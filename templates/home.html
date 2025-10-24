@@ -7,43 +7,29 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body>
+<body class="full-screen-video-body"> 
     
     <video autoplay muted loop id="background-video">
         <source src="{{ url_for('static', filename='videos/videoplayback.mp4') }}" type="video/mp4">
         Your browser does not support the video tag.
     </video>
-    <div class="home-container">
-        <nav class="navbar">
-            <div class="logo">🩺 AI Health Assistant</div>
-            <div class="nav-links">
+    <div class="home-container full-screen-content">
+        
+        <header class="header-overlay">
+            <div class="logo-text">🩺 AI Health Assistant</div>
+            <div class="nav-links-overlay">
                 <a href="{{ url_for('home') }}" class="active">Home</a>
                 <a href="{{ url_for('chat_page') }}">First-Aid Chat</a>
                 <a href="{{ url_for('login') }}">Login</a>
             </div>
-        </nav>
-
-        <header class="hero-section">
-            <h1>Your Health, Our Priority</h1>
-            <p>Get instant first-aid advice and find nearby medical services.</p>
         </header>
 
-        <section class="info-grid">
-            <div class="info-card chat-card">
-                <h3>First-Aid Assistant</h3>
-                <p>Get instant, reliable first-aid advice for common injuries and emergencies.</p>
-                <a href="{{ url_for('chat_page') }}" class="cta-button">Start Assistant</a>
-            </div>
-            <div class="info-card">
-                <h3>Find a Hospital</h3>
-                <p>Locate the nearest hospitals and clinics. Click to see a map.</p>
-                <img src="{{ url_for('static', filename='health_map.png') }}" alt="Map of hospitals" class="info-image">
-            </div>
-            <div class="info-card">
-                <h3>Emergency Services</h3>
-                <p>Learn how to contact local emergency services and perform life-saving procedures like CPR.</p>
-            </div>
-        </section>
-    </div>
+        <header class="hero-section hero-full-height">
+            <h1>Your Health, Our Priority</h1>
+            <p>Get instant first-aid advice and find nearby medical services.</p>
+            <a href="{{ url_for('chat_page') }}" class="cta-button large-cta">Start Assistant Now</a>
+        </header>
+
+        </div>
 </body>
 </html>
